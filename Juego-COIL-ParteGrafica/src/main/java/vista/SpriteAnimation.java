@@ -1,4 +1,4 @@
-package graficos;
+package vista;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -123,18 +123,6 @@ public class SpriteAnimation extends JPanel implements KeyListener {
         }
         if (e.getKeyCode() == KeyEvent.VK_D) {
             movingRight = false;
-        }
-    }
-
-    public static void main(String[] args) {
-        SpriteAnimation animation = new SpriteAnimation();
-        while (true) {
-            animation.update();
-            try {
-                Thread.sleep(150);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
