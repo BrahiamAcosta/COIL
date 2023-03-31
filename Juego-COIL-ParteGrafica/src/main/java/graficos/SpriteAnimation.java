@@ -1,4 +1,4 @@
-package com.mycompany.testsrpites;
+package graficos;
 
 import java.awt.Graphics;
 import java.awt.Image;
