@@ -1,5 +1,6 @@
 package vista;
 
+import modelos.PersonajePpal;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 
 public class SpriteAnimation extends JPanel implements KeyListener {
     private BufferedImage spriteSheet;
+    private BufferedImage fondo;
     private int spriteIndex = 0;
     private int x = 0;
     private int y = 0;
@@ -27,7 +29,13 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     private boolean movingRight = false;
 
     public SpriteAnimation() {
+        PersonajePpal personaje = new PersonajePpal();
         try {
+            if(personaje.terminado()){
+                fondo = ImageIO.read(new File("src\\main\\java\\img\\mapaFinal.png"));
+            }else{
+                fondo = ImageIO.read(new File("src\\main\\java\\img\\mapaInicial.png"));
+            }
             spriteSheet = ImageIO.read(new File("src\\main\\java\\img\\soldier_altcolor.png"));
         } catch (IOException e) {
             System.out.println("Error al cargar la hoja de sprites: " + e.getMessage());
@@ -45,6 +53,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
 
     public void paint(Graphics g) {
         super.paint(g);
+        g.drawImage(fondo,0,0,null);
         if(movingUp){
             Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 0, spriteWidth, spriteHeight);
             g.drawImage(sprite, x, y, null);
