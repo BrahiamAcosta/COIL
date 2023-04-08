@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 public class SpriteAnimation extends JPanel implements KeyListener {
     private BufferedImage spriteSheet;
     private BufferedImage fondo;
+    private BufferedImage dialogo1;
     private int spriteIndex = 0;
     private int x = 220;
     private int y = 430;
@@ -36,6 +37,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
             }else{
                 fondo = ImageIO.read(new File("src\\main\\java\\img\\mapaInicial.png"));
             }
+            dialogo1 = ImageIO.read(new File("src\\main\\java\\img\\dialogoInicial.png"));
             spriteSheet = ImageIO.read(new File("src\\main\\java\\img\\soldier_altcolor.png"));
         } catch (IOException e) {
             System.out.println("Error al cargar la hoja de sprites: " + e.getMessage());
@@ -54,6 +56,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public void paint(Graphics g) {
         super.paint(g);
         g.drawImage(fondo,0,0,null);
+        g.drawImage(dialogo1,430,400,null);
         if(movingUp){
             Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 0, spriteWidth, spriteHeight);
             g.drawImage(sprite, x, y, null);
@@ -76,14 +79,6 @@ public class SpriteAnimation extends JPanel implements KeyListener {
         }
     }
     
-    public boolean esPosibleMov(int x, int y){
-        if((x < 120)||(personaje.perLadoDer(x)>780)||(y<80)||(personaje.perLadoAbajo(y)>530)){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
 
     public void update() {
         if(x<120){
@@ -110,13 +105,13 @@ public class SpriteAnimation extends JPanel implements KeyListener {
             x -= speed;
             animate();
         }
-        if (movingRight) {
+        if (movingRight && (personaje.posibleMovDer(x, y))) {
             x += speed;
             animate();
         }
         repaint();
     }
-
+    
     private void animate() {
         spriteIndex++;
         if (spriteIndex >= 8) {
@@ -127,6 +122,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public void keyTyped(KeyEvent e) {}
 
     public void keyPressed(KeyEvent e) {
+//        System.out.println("x: " +x+", y: "+y);
         if (e.getKeyCode() == KeyEvent.VK_W) {
             movingUp = true;
         }

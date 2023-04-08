@@ -17,12 +17,12 @@ public class PersonajePpal {
         }
     }
     
-    public int perLadoDer(int x){
-        return x+64;
-    }
-    
-    public int perLadoAbajo(int y){
-        return y+64;
+    public boolean posibleMovDer(int x, int y){
+        if((x>380)&&((y>360)&&(y<430))){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     public boolean isJuego1Terminado() {
