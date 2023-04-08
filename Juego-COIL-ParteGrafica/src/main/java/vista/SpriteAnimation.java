@@ -16,9 +16,9 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     private BufferedImage spriteSheet;
     private BufferedImage fondo;
     private int spriteIndex = 0;
-    private int x = 0;
-    private int y = 0;
-    private int speed = 10;
+    private int x = 220;
+    private int y = 430;
+    private int speed = 15;
     private int spriteWidth = 64;
     private int spriteHeight = 64;
     private int screenWidth = 900;
@@ -27,9 +27,9 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     private boolean movingDown = false;
     private boolean movingLeft = false;
     private boolean movingRight = false;
-
+    PersonajePpal personaje = new PersonajePpal();
     public SpriteAnimation() {
-        PersonajePpal personaje = new PersonajePpal();
+        
         try {
             if(personaje.terminado()){
                 fondo = ImageIO.read(new File("src\\main\\java\\img\\mapaFinal.png"));
@@ -75,8 +75,29 @@ public class SpriteAnimation extends JPanel implements KeyListener {
             g.drawImage(sprite,x,y,null);
         }
     }
+    
+    public boolean esPosibleMov(int x, int y){
+        if((x < 120)||(personaje.perLadoDer(x)>780)||(y<80)||(personaje.perLadoAbajo(y)>530)){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 
     public void update() {
+        if(x<120){
+            x = 120;
+        }
+        if(x>730){
+            x = 730;
+        }
+        if(y<70){
+            y = 70;
+        }
+        if(y>450){
+            y = 450;
+        }
         if (movingUp) {
             y -= speed;
             animate();
