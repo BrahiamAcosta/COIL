@@ -19,8 +19,8 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     private int speed = 10;
     private int spriteWidth = 64;
     private int spriteHeight = 64;
-    private int screenWidth = 1500;
-    private int screenHeight = 700;
+    private int screenWidth = 900;
+    private int screenHeight = 600;
     private boolean movingUp = false;
     private boolean movingDown = false;
     private boolean movingLeft = false;
