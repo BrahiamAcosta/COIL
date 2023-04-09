@@ -19,7 +19,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     private int spriteIndex = 0;
     private int x = 220;
     private int y = 430;
-    private int speed = 15;
+    private int speed = 10;
     private int spriteWidth = 64;
     private int spriteHeight = 64;
     private int screenWidth = 900;
@@ -56,7 +56,13 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public void paint(Graphics g) {
         super.paint(g);
         g.drawImage(fondo,0,0,null);
-        g.drawImage(dialogo1,430,400,null);
+        switch(personaje.posicionDialogo(x, y)){
+            case 1 -> g.drawImage(dialogo1, 400,380,null);
+            case 2 -> g.drawImage(dialogo1, 140, 70, null);
+            case 3 -> g.drawImage(dialogo1,650,70,null);
+            case 4 -> g.drawImage(dialogo1,400,280,null);
+        }
+        
         if(movingUp){
             Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 0, spriteWidth, spriteHeight);
             g.drawImage(sprite, x, y, null);
@@ -87,21 +93,21 @@ public class SpriteAnimation extends JPanel implements KeyListener {
         if(x>730){
             x = 730;
         }
-        if(y<70){
-            y = 70;
+        if(y<55){
+            y = 55;
         }
         if(y>450){
             y = 450;
         }
-        if (movingUp) {
+        if (movingUp && (personaje.posibleMovArr(x, y))) {
             y -= speed;
             animate();
         }
-        if (movingDown) {
+        if (movingDown && (personaje.posibleMovAba(x, y))) {
             y += speed;
             animate();
         }
-        if (movingLeft) {
+        if (movingLeft && (personaje.posibleMovIzq(x, y))) {
             x -= speed;
             animate();
         }
@@ -122,7 +128,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public void keyTyped(KeyEvent e) {}
 
     public void keyPressed(KeyEvent e) {
-//        System.out.println("x: " +x+", y: "+y);
+        System.out.println("x: " +x+", y: "+y);
         if (e.getKeyCode() == KeyEvent.VK_W) {
             movingUp = true;
         }

@@ -17,10 +17,99 @@ public class PersonajePpal {
         }
     }
     
+    public int posicionDialogo(int x, int y){
+        if(((x>385)&&(x<440))&&((y>360)&&(y<419))||
+          (((x>400)&&(x<461))&&((y>360)&&(y<419)))||
+          (((x>400)&&(x<444))&&((y>361)&&(y<435)))||
+          (((x>400)&&(x<444))&&((y>350)&&(y<419)))){
+            return 1;
+        }
+        if((((x>120)&&(x<189))&&((y>55)&&(y<130)))||
+           (((x>160)&&(x<200))&&((y>55)&&(y<130)))||
+           (((x>136)&&(x<189))&&((y>55)&&(y<140)))||
+           (((x>136)&&(x<189))&&((y>54)&&(y<129)))){
+            return 2;
+        }
+        if((((x>645)&&(x<709))&&((y>55)&&(y<114)))||
+           (((x>656)&&(x<716))&&((y>55)&&(y<114)))||
+           (((x>656)&&(x<709))&&((y>55)&&(y<130)))||
+           (((x>656)&&(x<709))&&((y>54)&&(y<114)))){
+            return 3;
+        }
+        if((x>400)&&(x<440)&&(y==310)){
+            return 4;
+        }
+        else{
+            return 0;
+        }
+    } 
+    
     public boolean posibleMovDer(int x, int y){
-        if((x>380)&&((y>360)&&(y<430))){
+        if(((x>385)&&(x<440))&&((y>360)&&(y<419))){
             return false;
-        }else{
+        }
+        if(((x>120)&&(x<189))&&((y>55)&&(y<130))){
+            return false;
+        }
+        if(((x>645)&&(x<709))&&((y>55)&&(y<114))){
+            return false;
+        }
+        if((((x>369)&&(x<469))&&((y>111)&&(y<309)))&&(!terminado())){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    public boolean posibleMovIzq(int x, int y){
+        if(((x>400)&&(x<461))&&((y>360)&&(y<419))){
+            return false;
+        }
+        if(((x>160)&&(x<200))&&((y>55)&&(y<130))){
+            return false;
+        }
+        if(((x>656)&&(x<716))&&((y>55)&&(y<114))){
+            return false;
+        }
+        if((((x>371)&&(x<476))&&((y>116)&&(y<309)))&&(!terminado())){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    public boolean posibleMovArr(int x, int y){
+        if(((x>400)&&(x<444))&&((y>361)&&(y<435))){
+            return false;
+        }
+        if(((x>136)&&(x<189))&&((y>55)&&(y<140))){
+            return false;
+        }
+        if(((x>656)&&(x<709))&&((y>55)&&(y<130))){
+            return false;
+        }
+        if((((x>370)&&(x<470))&&((y>111)&&(y<311)))&&(!terminado())){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    
+    public boolean posibleMovAba(int x, int y){
+        if(((x>400)&&(x<444))&&((y>350)&&(y<419))){
+            return false;
+        }
+        if(((x>136)&&(x<189))&&((y>54)&&(y<129))){
+            return false;
+        }
+        if(((x>656)&&(x<709))&&((y>54)&&(y<114))){
+            return false;
+        }
+        if((((x>370)&&(x<470))&&((y>109)&&(y<311)))&&(!terminado())){
+            return false;
+        }
+        else{
             return true;
         }
     }
