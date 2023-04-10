@@ -16,6 +16,8 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     private BufferedImage spriteSheet;
     private BufferedImage fondo;
     private BufferedImage dialogo1;
+    private BufferedImage dialogo2;
+    private BufferedImage dialogoGuardia;
     private int spriteIndex = 0;
     private int x = 220;
     private int y = 430;
@@ -28,6 +30,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     private boolean movingDown = false;
     private boolean movingLeft = false;
     private boolean movingRight = false;
+    private boolean enter = false;
     PersonajePpal personaje = new PersonajePpal();
     public SpriteAnimation() {
         
@@ -39,6 +42,8 @@ public class SpriteAnimation extends JPanel implements KeyListener {
             }
             dialogo1 = ImageIO.read(new File("src\\main\\java\\img\\dialogoInicial.png"));
             spriteSheet = ImageIO.read(new File("src\\main\\java\\img\\soldier_altcolor.png"));
+            dialogo2 = ImageIO.read(new File("src\\main\\java\\img\\dialogoIntermedio.png"));
+            dialogoGuardia = ImageIO.read(new File("src\\main\\java\\img\\dialogoGuardia.png"));
         } catch (IOException e) {
             System.out.println("Error al cargar la hoja de sprites: " + e.getMessage());
             e.printStackTrace();
@@ -56,11 +61,40 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public void paint(Graphics g) {
         super.paint(g);
         g.drawImage(fondo,0,0,null);
+        
         switch(personaje.posicionDialogo(x, y)){
-            case 1 -> g.drawImage(dialogo1, 400,380,null);
-            case 2 -> g.drawImage(dialogo1, 140, 70, null);
-            case 3 -> g.drawImage(dialogo1,650,70,null);
-            case 4 -> g.drawImage(dialogo1,400,280,null);
+            case 1 -> {
+                if(enter){
+                    g.drawImage(dialogo2,350,330,null);
+                }
+                else{
+                    g.drawImage(dialogo1, 400,380,null);
+                }
+                
+            }
+            case 2 -> {
+                if(enter){
+                    g.drawImage(dialogo2,90,20,null);
+                }
+                else{
+                g.drawImage(dialogo1, 140, 70, null);
+                }
+            }
+            case 3 -> {
+                if(enter){
+                    g.drawImage(dialogo2,600,20,null);
+                }
+                else{
+                    g.drawImage(dialogo1,650,70,null);
+                }
+            }
+            case 4 -> {
+                if(enter){
+                    g.drawImage(dialogoGuardia,350,230,null);
+                }
+                else{
+                g.drawImage(dialogo1,400,280,null);}
+            }
         }
         
         if(movingUp){
@@ -125,12 +159,22 @@ public class SpriteAnimation extends JPanel implements KeyListener {
         }
     }
 
-    public void keyTyped(KeyEvent e) {}
+    public void keyTyped(KeyEvent e) {
+    }
 
     public void keyPressed(KeyEvent e) {
-        System.out.println("x: " +x+", y: "+y);
+        if(enter){
+            enter = false;
+        }
+        if((e.getKeyCode()==KeyEvent.VK_ENTER)&&(enter)){
+            enter = false;
+        }
+        if((e.getKeyCode()==KeyEvent.VK_ENTER)&&(!enter)){
+            enter = true;
+        }
         if (e.getKeyCode() == KeyEvent.VK_W) {
             movingUp = true;
+            
         }
         if (e.getKeyCode() == KeyEvent.VK_S) {
             movingDown = true;
