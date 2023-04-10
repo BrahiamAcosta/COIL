@@ -11,7 +11,7 @@ public class Principal {
         while (true) {
             juego.update();
             try {
-                Thread.sleep(150);
+                Thread.sleep(90);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
