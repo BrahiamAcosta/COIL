@@ -1,5 +1,6 @@
 package vista;
 
+import minijuegoPreguntas.JuegoDePreguntas;
 import modelos.PersonajePpal;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
 public class SpriteAnimation extends JPanel implements KeyListener {
 
     private BufferedImage spriteSheet;
+    private int contEnter = 0;
     private BufferedImage fondo;
     private BufferedImage dialogo1;
     private BufferedImage dialogo2;
@@ -72,7 +74,11 @@ public class SpriteAnimation extends JPanel implements KeyListener {
                 case 1 -> {
                     if (enter) {
                         g.drawImage(dialogo2, 350, 330, null);
-                    } else {
+                    }
+                    if(contEnter >=2){
+                        inicioJuego1();
+                    }
+                    else {
                         g.drawImage(dialogo1, 400, 380, null);
                     }
 
@@ -126,6 +132,11 @@ public class SpriteAnimation extends JPanel implements KeyListener {
         }
 
     }
+    public void inicioJuego1(){
+        if(!(personaje.isJuego1Terminado())){
+            JuegoDePreguntas juegoPreguntas = new JuegoDePreguntas();
+        }
+    }
 
     public void update() {
         if(!(personaje.frenteTrofeo(x, y))){
@@ -174,25 +185,31 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if (enter) {
             enter = false;
+            contEnter ++;
         }
         if ((e.getKeyCode() == KeyEvent.VK_ENTER) && (enter)) {
             enter = false;
         }
         if ((e.getKeyCode() == KeyEvent.VK_ENTER) && (!enter)) {
             enter = true;
+            contEnter = 0;
         }
         if (e.getKeyCode() == KeyEvent.VK_W) {
             movingUp = true;
+            contEnter = 0;
 
         }
         if (e.getKeyCode() == KeyEvent.VK_S) {
             movingDown = true;
+            contEnter = 0;
         }
         if (e.getKeyCode() == KeyEvent.VK_A) {
             movingLeft = true;
+            contEnter = 0;
         }
         if (e.getKeyCode() == KeyEvent.VK_D) {
             movingRight = true;
+            contEnter = 0;
         }
     }
 
