@@ -17,6 +17,7 @@ public class PersonajePpal {
         }
     }
     
+    
     public boolean frenteTrofeo(int x, int y){
         if((x == 420)&&(y==190)){
             return true;

@@ -13,11 +13,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class SpriteAnimation extends JPanel implements KeyListener {
+
     private BufferedImage spriteSheet;
     private BufferedImage fondo;
     private BufferedImage dialogo1;
     private BufferedImage dialogo2;
     private BufferedImage dialogoGuardia;
+    private BufferedImage output;
     private int spriteIndex = 0;
     private int x = 220;
     private int y = 430;
@@ -25,25 +27,27 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     private int spriteWidth = 64;
     private int spriteHeight = 64;
     private int screenWidth = 900;
-    private int screenHeight = 600;
+    private int screenHeight = 630;
     private boolean movingUp = false;
     private boolean movingDown = false;
     private boolean movingLeft = false;
     private boolean movingRight = false;
     private boolean enter = false;
     PersonajePpal personaje = new PersonajePpal();
+
     public SpriteAnimation() {
-        
+
         try {
-            if(personaje.terminado()){
+            if (personaje.terminado()) {
                 fondo = ImageIO.read(new File("src\\main\\java\\img\\mapaFinal.png"));
-            }else{
+            } else {
                 fondo = ImageIO.read(new File("src\\main\\java\\img\\mapaInicial.png"));
             }
             dialogo1 = ImageIO.read(new File("src\\main\\java\\img\\dialogoInicial.png"));
             spriteSheet = ImageIO.read(new File("src\\main\\java\\img\\soldier_altcolor.png"));
             dialogo2 = ImageIO.read(new File("src\\main\\java\\img\\dialogoIntermedio.png"));
             dialogoGuardia = ImageIO.read(new File("src\\main\\java\\img\\dialogoGuardia.png"));
+            output = ImageIO.read(new File("src\\main\\java\\img\\output.png"));
         } catch (IOException e) {
             System.out.println("Error al cargar la hoja de sprites: " + e.getMessage());
             e.printStackTrace();
@@ -56,81 +60,85 @@ public class SpriteAnimation extends JPanel implements KeyListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addKeyListener(this);
         setFocusable(true);
+        frame.setResizable(false);
     }
 
     public void paint(Graphics g) {
         super.paint(g);
-        g.drawImage(fondo,0,0,null);
-        
-        switch(personaje.posicionDialogo(x, y)){
-            case 1 -> {
-                if(enter){
-                    g.drawImage(dialogo2,350,330,null);
+        if (!(personaje.frenteTrofeo(x, y))) {
+            g.drawImage(fondo, 0, 0, null);
+
+            switch (personaje.posicionDialogo(x, y)) {
+                case 1 -> {
+                    if (enter) {
+                        g.drawImage(dialogo2, 350, 330, null);
+                    } else {
+                        g.drawImage(dialogo1, 400, 380, null);
+                    }
+
                 }
-                else{
-                    g.drawImage(dialogo1, 400,380,null);
+                case 2 -> {
+                    if (enter) {
+                        g.drawImage(dialogo2, 90, 20, null);
+                    } else {
+                        g.drawImage(dialogo1, 140, 70, null);
+                    }
                 }
-                
+                case 3 -> {
+                    if (enter) {
+                        g.drawImage(dialogo2, 600, 20, null);
+                    } else {
+                        g.drawImage(dialogo1, 650, 70, null);
+                    }
+                }
+                case 4 -> {
+                    if (enter) {
+                        g.drawImage(dialogoGuardia, 350, 230, null);
+                    } else {
+                        g.drawImage(dialogo1, 400, 280, null);
+                    }
+                }
             }
-            case 2 -> {
-                if(enter){
-                    g.drawImage(dialogo2,90,20,null);
-                }
-                else{
-                g.drawImage(dialogo1, 140, 70, null);
-                }
+
+            if (movingUp) {
+                Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 0, spriteWidth, spriteHeight);
+                g.drawImage(sprite, x, y, null);
             }
-            case 3 -> {
-                if(enter){
-                    g.drawImage(dialogo2,600,20,null);
-                }
-                else{
-                    g.drawImage(dialogo1,650,70,null);
-                }
+            if (movingDown) {
+                Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 2 * spriteHeight, spriteWidth, spriteHeight);
+                g.drawImage(sprite, x, y, null);
             }
-            case 4 -> {
-                if(enter){
-                    g.drawImage(dialogoGuardia,350,230,null);
-                }
-                else{
-                g.drawImage(dialogo1,400,280,null);}
+            if (movingLeft) {
+                Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 1 * spriteHeight, spriteWidth, spriteHeight);
+                g.drawImage(sprite, x, y, null);
+            }
+            if (movingRight) {
+                Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 3 * spriteHeight, spriteWidth, spriteHeight);
+                g.drawImage(sprite, x, y, null);
+            }
+            if ((!movingUp) & (!movingDown) & (!movingLeft) & (!movingRight)) {
+                Image sprite = spriteSheet.getSubimage(0, 64 * 2, spriteWidth, spriteHeight);
+                g.drawImage(sprite, x, y, null);
             }
         }
-        
-        if(movingUp){
-            Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 0, spriteWidth, spriteHeight);
-            g.drawImage(sprite, x, y, null);
+        else{
+            g.drawImage(output,0,0,null);
         }
-        if(movingDown){
-            Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 2*spriteHeight, spriteWidth, spriteHeight);
-            g.drawImage(sprite, x, y, null);
-        }
-        if(movingLeft){
-            Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 1*spriteHeight, spriteWidth, spriteHeight);
-            g.drawImage(sprite, x, y, null);
-        }
-        if(movingRight){
-            Image sprite = spriteSheet.getSubimage(spriteIndex * spriteWidth, 3*spriteHeight, spriteWidth, spriteHeight);
-            g.drawImage(sprite, x, y, null);
-        }
-        if((!movingUp)&(!movingDown)&(!movingLeft)&(!movingRight)){
-            Image sprite = spriteSheet.getSubimage(0, 64*2, spriteWidth, spriteHeight);
-            g.drawImage(sprite,x,y,null);
-        }
+
     }
-    
 
     public void update() {
-        if(x<120){
+        if(!(personaje.frenteTrofeo(x, y))){
+            if (x < 120) {
             x = 120;
         }
-        if(x>730){
+        if (x > 730) {
             x = 730;
         }
-        if(y<55){
+        if (y < 55) {
             y = 55;
         }
-        if(y>450){
+        if (y > 450) {
             y = 450;
         }
         if (movingUp && (personaje.posibleMovArr(x, y))) {
@@ -150,8 +158,9 @@ public class SpriteAnimation extends JPanel implements KeyListener {
             animate();
         }
         repaint();
+        }
     }
-    
+
     private void animate() {
         spriteIndex++;
         if (spriteIndex >= 8) {
@@ -163,18 +172,18 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        if(enter){
+        if (enter) {
             enter = false;
         }
-        if((e.getKeyCode()==KeyEvent.VK_ENTER)&&(enter)){
+        if ((e.getKeyCode() == KeyEvent.VK_ENTER) && (enter)) {
             enter = false;
         }
-        if((e.getKeyCode()==KeyEvent.VK_ENTER)&&(!enter)){
+        if ((e.getKeyCode() == KeyEvent.VK_ENTER) && (!enter)) {
             enter = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_W) {
             movingUp = true;
-            
+
         }
         if (e.getKeyCode() == KeyEvent.VK_S) {
             movingDown = true;
