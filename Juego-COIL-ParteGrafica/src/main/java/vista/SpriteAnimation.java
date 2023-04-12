@@ -14,7 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class SpriteAnimation extends JPanel implements KeyListener {
-
+    
+    private int controlJuego1 = 0;
     private BufferedImage spriteSheet;
     private int contEnter = 0;
     private BufferedImage fondo;
@@ -133,7 +134,8 @@ public class SpriteAnimation extends JPanel implements KeyListener {
 
     }
     public void inicioJuego1(){
-        if(!(personaje.isJuego1Terminado())){
+        if((!(personaje.isJuego1Terminado()))&&(controlJuego1 == 0)){
+            controlJuego1 ++;
             JuegoDePreguntas juegoPreguntas = new JuegoDePreguntas();
         }
     }
@@ -185,14 +187,14 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if (enter) {
             enter = false;
-            contEnter ++;
         }
         if ((e.getKeyCode() == KeyEvent.VK_ENTER) && (enter)) {
             enter = false;
+            contEnter ++;
         }
         if ((e.getKeyCode() == KeyEvent.VK_ENTER) && (!enter)) {
             enter = true;
-            contEnter = 0;
+            contEnter ++;
         }
         if (e.getKeyCode() == KeyEvent.VK_W) {
             movingUp = true;
