@@ -105,7 +105,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
                     "Juego Terminado",
                     JOptionPane.PLAIN_MESSAGE
             );
-            System.exit(0);
+            dispose();
         }
         escogerPregunta(n_pregunta);
         mostrarPregunta();
