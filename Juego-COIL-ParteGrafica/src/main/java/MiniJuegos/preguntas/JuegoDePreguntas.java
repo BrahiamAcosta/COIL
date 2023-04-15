@@ -1,4 +1,4 @@
-package minijuegoPreguntas;
+package MiniJuegos.preguntas;
 
 /**
  *
@@ -118,8 +118,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
             baseDePreguntas[i] = renglon.split("\t");
         }
         initComponents();
-        setSize(600, 520);
-        setLocationRelativeTo(null);
+        setSize(900, 630);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
