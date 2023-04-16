@@ -1,149 +1,122 @@
 [
     {
-        "sentence": "I like to read books."
+        "mission": 1,
+        "question": "Order the words to find out the hidden message in order to know the mission.",
+        "sentence": "You get up at 6:00 o’clock to take a shower ."
     },
     {
-        "sentence": "The sun is shining today."
+        "mission": 2,
+        "question": "It’s a long day, you need to know what time you wake up for the next mission, order the words.",
+        "sentence": "The avatars wake up at 10:00 o’clock ."
     },
     {
-        "sentence": "He is a good friend."
+        "mission": 3,
+        "question": "For this mission you are in a place where you don’t know anything. You need to know the interrogative structure of the simple present to ask the daily routine of the other characters.",
+        "order": "Aux. Verb / Subject / Main Verb / Complement / ?"
     },
     {
-        "sentence": "She loves to sing in the shower."
+        "mission": 4,
+        "question": "Find out what your character eats for breakfast.",
+        "sentence": "He makes eggs with ham and drinks orange juice ."
     },
     {
-        "sentence": "My favorite color is blue."
+        "mission": 5,
+        "question": "You have to write the following sentence in negative form 'I feed the dog when I get home'.",
+        "sentence": "I don't feed the dog when I get home ."
     },
     {
-        "sentence": "We are going to the beach tomorrow."
+        "mission": 6,
+        "question": "Find out the question.",
+        "sentence": "Do you take a nap after breakfast ?"
     },
     {
-        "sentence": "The cat is sleeping on the couch."
+        "mission": 7,
+        "question": "You have to write the following sentence in affirmative form 'She doesn't eat breakfast'.",
+        "sentence": "She eat breakfast ."
     },
     {
-        "sentence": "I need to buy some groceries."
+        "mission": 8,
+        "question": "I dropped some cards with the structure of the present simple in affirmative order them.",
+        "order": "Subject / Verb / Complement"
     },
     {
-        "sentence": "He plays the guitar in a band."
+        "mission": 9,
+        "question": "There aren’t cards on the board and they say you have them, you need to know the negative form of the present simple, put the cards in the correct order.",
+        "order": "Subject / Auxiliary / Not / Complement"
     },
     {
-        "sentence": "She is always late for class."
+        "mission": 10,
+        "question": "Find the mistake, order the words to make a sentence.",
+        "sentence": "I go to school in the morning ."
     },
     {
-        "sentence": "The pizza smells delicious."
+        "mission": 11,
+        "question": "Put the words in order.",
+        "sentence": "She goes to the gym in the afternoons"
     },
     {
-        "sentence": "We watched a movie last night."
+        "mission": 11,
+        "question": "Put the words in order.",
+        "sentence": "I drink coffee after work"
     },
     {
-        "sentence": "The dog barks at strangers."
+        "mission": 11,
+        "question": "Put the words in order.",
+        "sentence": "I never play soccer in the afternoon"
     },
     {
-        "sentence": "I enjoy playing video games."
+        "mission": 11,
+        "question": "Put the words in order.",
+        "sentence": "Do you eat bread every afternoon ?"
     },
     {
-        "sentence": "The coffee is too hot to drink."
+        "mission": 11,
+        "question": "Put the words in order.",
+        "sentence": "You don’t work at four o’clock"
     },
     {
-        "sentence": "She has a beautiful voice."
+        "mission": 11,
+        "question": "Put the words in order.",
+        "sentence": "She reads in bed every afternoon"
     },
     {
-        "sentence": "He is studying for a test."
+        "mission": 11,
+        "question": "Put the words in order.",
+        "sentence": "I don’t like fast food"
     },
     {
-        "sentence": "We went hiking in the mountains."
+        "mission": 11,
+        "question": "Put the words in order.",
+        "sentence": "What time do you eat ?"
     },
     {
-        "sentence": "The baby is crying in the crib."
+        "mission": 11,
+        "question": "Put the words in order.",
+        "sentence": "Do you go to the movies in the afternoon ?"
     },
     {
-        "sentence": "I don't like spicy food."
+        "mission": 11,
+        "question": "Put the words in order.",
+        "sentence": "Does he play the guitar every week ?"
     },
     {
-        "sentence": "The book is on the shelf."
+        "mission": 12,
+        "question": "Order the words to ask a question.",
+        "sentence": "When do you go to sleep ?"
     },
     {
-        "sentence": "She dances ballet on weekends."
+        "mission": 12,
+        "question": "Order the words to ask a question.",
+        "sentence": "What time do you have dinner ?"
     },
     {
-        "sentence": "He is a talented artist."
+        "mission": 12,
+        "question": "Order the words to ask a question.",
+        "sentence": "When do you get home ?"
     },
     {
-        "sentence": "We went shopping at the mall."
-    },
-    {
-        "sentence": "The birds are singing outside."
-    },
-    {
-        "sentence": "I need to do laundry today."
-    },
-    {
-        "sentence": "The cake tastes delicious."
-    },
-    {
-        "sentence": "She is a great cook."
-    },
-    {
-        "sentence": "He drives a red sports car."
-    },
-    {
-        "sentence": "We are planning a vacation."
-    },
-    {
-        "sentence": "The fish are swimming in the pond."
-    },
-    {
-        "sentence": "I want to learn a new language."
-    },
-    {
-        "sentence": "The tree is tall and green."
-    },
-    {
-        "sentence": "She is a nurse at the hospital."
-    },
-    {
-        "sentence": "He loves to play basketball."
-    },
-    {
-        "sentence": "We had a picnic in the park."
-    },
-    {
-        "sentence": "The rain is pouring outside."
-    },
-    {
-        "sentence": "I need to clean the house."
-    },
-    {
-        "sentence": "The movie was really funny."
-    },
-    {
-        "sentence": "She is studying to be a doctor."
-    },
-    {
-        "sentence": "He is a firefighter."
-    },
-    {
-        "sentence": "We are having a barbecue tonight."
-    },
-    {
-        "sentence": "The sky is clear and blue."
-    },
-    {
-        "sentence": "I enjoy listening to music."
-    },
-    {
-        "sentence": "The flowers are blooming in the garden."
-    },
-    {
-        "sentence": "She is a teacher at the school."
-    },
-    {
-        "sentence": "He is a computer programmer."
-    },
-    {
-        "sentence": "We went to the zoo last weekend."
-    },
-    {
-        "sentence": "The stars are shining in the sky."
+        "mission": 12,
+        "question": "Order the words to ask a question.",
+        "sentence": "How often do you study at night ?"
     }
 ]

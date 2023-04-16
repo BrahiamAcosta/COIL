@@ -20,7 +20,6 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     private BufferedImage spriteSheet;
     private int contEnter = 0;
     private BufferedImage fondo;
-    private BufferedImage fondo2;
     private BufferedImage dialogo1;
     private BufferedImage dialogo2;
     private BufferedImage dialogo3;
@@ -44,8 +43,11 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public SpriteAnimation() {
 
         try {
-            fondo2 = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\mapaFinal.png"));
-            fondo = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\mapaInicial.png"));
+            if (personaje.terminado()) {
+                fondo = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\mapaFinal.png"));
+            } else {
+                fondo = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\mapaInicial.png"));
+            }
             dialogo1 = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\dialogoInicial.png"));
             spriteSheet = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\soldier_altcolor.png"));
             dialogo2 = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\dialogoIntermedio.png"));
@@ -70,13 +72,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public void paint(Graphics g) {
         super.paint(g);
         if (!(personaje.frenteTrofeo(x, y))) {
-            if(!personaje.terminado()){
-                g.drawImage(fondo, 0, 0, null);
-            }
-            else{
-                g.drawImage(fondo2, 0, 0, null);
-            }
-            
+            g.drawImage(fondo, 0, 0, null);
 
             switch (personaje.posicionDialogo(x, y)) {
                 case 1 -> {
@@ -99,7 +95,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
                 case 2 -> {
                     if (enter) {
                         if(personaje.isJuego2Terminado()==true){
-                            g.drawImage(dialogo3,90,20,null);
+                            g.drawImage(dialogo3,350,330,null);
                         }
                         else{
                         g.drawImage(dialogo2, 90, 20, null);
@@ -114,12 +110,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
                 }
                 case 3 -> {
                     if (enter) {
-                        if(personaje.isJuego3Terminado()==true){
-                            g.drawImage(dialogo3,600,20,null);
-                        }
-                        else{
-                            g.drawImage(dialogo2, 600, 20, null);
-                        }
+                        g.drawImage(dialogo2, 600, 20, null);
                     } else {
                         g.drawImage(dialogo1, 650, 70, null);
                     }
