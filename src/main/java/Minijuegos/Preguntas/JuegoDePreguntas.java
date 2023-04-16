@@ -1,4 +1,4 @@
-package juegodepreguntas;
+package Minijuegos.Preguntas;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
