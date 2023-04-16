@@ -1,6 +1,6 @@
 package ParteGrafica.vista;
 
-import minijuegos.preguntas.JuegoDePreguntas;
+import juegodepreguntas.JuegoDePreguntas;
 import ParteGrafica.modelos.PersonajePpal;
 import java.awt.Graphics;
 import java.awt.Image;
