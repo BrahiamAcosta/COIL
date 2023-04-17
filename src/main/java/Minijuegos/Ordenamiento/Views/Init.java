@@ -35,9 +35,8 @@ public class Init extends javax.swing.JFrame {
         ExitButton = new javax.swing.JButton();
         startButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 102));
-        setMaximumSize(new java.awt.Dimension(900, 630));
         setMinimumSize(new java.awt.Dimension(900, 630));
         setResizable(false);
 
@@ -111,7 +110,6 @@ public class Init extends javax.swing.JFrame {
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        System.exit(0);
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     /**

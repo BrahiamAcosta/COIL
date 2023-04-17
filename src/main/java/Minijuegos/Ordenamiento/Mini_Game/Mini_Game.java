@@ -12,9 +12,8 @@ import java.io.IOException;
  * @author Alisser
  */
 public class Mini_Game {
-    public Mini_Game(String[] args) throws IOException {
+    public void inicio() throws IOException {
         Init initWindow = new Init();
         initWindow.setVisible(true);
-        initWindow.setLocationRelativeTo(null);
     }
 }

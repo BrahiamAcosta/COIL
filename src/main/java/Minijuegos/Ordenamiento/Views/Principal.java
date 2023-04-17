@@ -72,11 +72,9 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         });
         jScrollPane2.setViewportView(jList1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 102));
-        setMaximumSize(new java.awt.Dimension(920, 630));
         setMinimumSize(new java.awt.Dimension(920, 630));
-        setPreferredSize(new java.awt.Dimension(920, 630));
         setResizable(false);
         setSize(new java.awt.Dimension(900, 630));
 

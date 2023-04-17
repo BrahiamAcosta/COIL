@@ -1,6 +1,7 @@
 package ParteGrafica.vista;
 
 import Minijuegos.Preguntas.JuegoDePreguntas;
+import Minijuegos.Ordenamiento.Mini_Game.Mini_Game;
 import ParteGrafica.modelos.PersonajePpal;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -9,6 +10,8 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -158,9 +161,14 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     }
     
     public void inicioJuego2(){
-        if((!(personaje.isJuego1Terminado()))&&(controlJuego2 == 0)){
+        if((!(personaje.isJuego2Terminado()))&&(controlJuego2 == 0)){
             controlJuego2 ++;
-            
+            Mini_Game ordenamiento = new Mini_Game();
+            try {
+                ordenamiento.inicio();
+            } catch (IOException ex) {
+                Logger.getLogger(SpriteAnimation.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
