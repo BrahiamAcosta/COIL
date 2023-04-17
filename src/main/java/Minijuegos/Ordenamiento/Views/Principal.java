@@ -257,7 +257,6 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         // TODO add your handling code here:
         Init initWindow = new Init();
         initWindow.setVisible(true);
-        initWindow.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_exitButtonActionPerformed
 

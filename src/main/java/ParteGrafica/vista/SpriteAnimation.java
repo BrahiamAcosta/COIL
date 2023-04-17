@@ -20,6 +20,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     
     private int controlJuego1 = 0;
     private int controlJuego2 = 0;
+    private int controlJuego3 = 0;
     private BufferedImage spriteSheet;
     private int contEnter = 0;
     private BufferedImage fondo;
@@ -46,11 +47,6 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public SpriteAnimation() {
 
         try {
-            if (personaje.terminado()) {
-                fondo = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\mapaFinal.png"));
-            } else {
-                fondo = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\mapaInicial.png"));
-            }
             dialogo1 = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\dialogoInicial.png"));
             spriteSheet = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\soldier_altcolor.png"));
             dialogo2 = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\dialogoIntermedio.png"));
@@ -75,7 +71,17 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public void paint(Graphics g) {
         super.paint(g);
         if (!(personaje.frenteTrofeo(x, y))) {
-            g.drawImage(fondo, 0, 0, null);
+            try{
+                if(!personaje.terminado()){
+                fondo = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\mapaInicial.png"));
+            }
+            else{
+                fondo = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\mapaFinal.png"));
+            }
+            }catch(Exception e){
+            }
+            
+            g.drawImage(fondo,0,0,null);
 
             switch (personaje.posicionDialogo(x, y)) {
                 case 1 -> {
@@ -113,9 +119,18 @@ public class SpriteAnimation extends JPanel implements KeyListener {
                 }
                 case 3 -> {
                     if (enter) {
+                        if(personaje.isJuego3Terminado() == true){
+                            g.drawImage(dialogo3,600,20,null);
+                        }
+                        else{
                         g.drawImage(dialogo2, 600, 20, null);
+                        }
                     } else {
                         g.drawImage(dialogo1, 650, 70, null);
+                    }
+                    if((contEnter >= 2)&&(!personaje.isJuego3Terminado())){
+                        inicioJuego3();
+                        personaje.setJuego3Terminado(true);
                     }
                 }
                 case 4 -> {
@@ -169,6 +184,13 @@ public class SpriteAnimation extends JPanel implements KeyListener {
             } catch (IOException ex) {
                 Logger.getLogger(SpriteAnimation.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+    }
+    
+    public void inicioJuego3(){
+        if((!(personaje.isJuego3Terminado()))&&(controlJuego3 == 0)){
+            controlJuego3 ++;
+            
         }
     }
 
