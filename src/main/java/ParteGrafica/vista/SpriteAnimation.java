@@ -95,7 +95,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
                 case 2 -> {
                     if (enter) {
                         if(personaje.isJuego2Terminado()==true){
-                            g.drawImage(dialogo3,350,330,null);
+                            g.drawImage(dialogo3,90,20,null);
                         }
                         else{
                         g.drawImage(dialogo2, 90, 20, null);
