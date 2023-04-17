@@ -84,15 +84,16 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
                     JOptionPane.INFORMATION_MESSAGE
             );
             aciertos++;
+            jugar();
         } else {
             JOptionPane.showMessageDialog(
                     this,
-                    "Su respuesta es incorrecta, la respuesta es: " + respuesta,
+                    "Su respuesta es incorrecta",
                     "Que mal :(",
                     JOptionPane.ERROR_MESSAGE
             );
         }
-        jugar();
+        
     }
 
     public void jugar() {
