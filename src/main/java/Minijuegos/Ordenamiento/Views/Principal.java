@@ -18,6 +18,9 @@ import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import org.json.JSONArray;
 
@@ -269,6 +272,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
      */
     public void WordsToLabel() throws IOException {
         if (this.index < info.NumSentences()) {
+            this.setLocation(0, 0);
             exitButton.setVisible(false);
             this.mission = info.Mission(index);
             this.words = info.Words(index);
@@ -375,7 +379,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                     // Aquí es donde ocultaremos el JLabel
                     responseLabel.setVisible(false);
                     try {
-                        this.words = info.Words(index-1);
+                        //this.words = info.Words(index-1);
                         this.WordsToLabel();
                     } catch (IOException ex) {
                         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);

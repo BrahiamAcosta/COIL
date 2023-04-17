@@ -18,6 +18,8 @@ public class Init extends javax.swing.JFrame {
      * Creates new form Init
      */
     public Init() {
+        super("Init");
+        setLocation(0 ,0);
         initComponents();
     }
 
@@ -35,12 +37,15 @@ public class Init extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 102));
+        setMaximumSize(new java.awt.Dimension(900, 630));
+        setMinimumSize(new java.awt.Dimension(900, 630));
+        setResizable(false);
 
-        titlePanel.setFont(new java.awt.Font("Minecraft", 1, 24)); // NOI18N
+        titlePanel.setFont(new java.awt.Font("Minecraft", 1, 48)); // NOI18N
         titlePanel.setText("ORDER THE WORDS");
 
         ExitButton.setBackground(new java.awt.Color(204, 204, 204));
-        ExitButton.setFont(new java.awt.Font("Minecraft", 1, 24)); // NOI18N
+        ExitButton.setFont(new java.awt.Font("Minecraft", 1, 40)); // NOI18N
         ExitButton.setForeground(new java.awt.Color(255, 0, 0));
         ExitButton.setText("EXIT");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -50,7 +55,7 @@ public class Init extends javax.swing.JFrame {
         });
 
         startButton.setBackground(new java.awt.Color(204, 204, 204));
-        startButton.setFont(new java.awt.Font("Minecraft", 1, 24)); // NOI18N
+        startButton.setFont(new java.awt.Font("Minecraft", 1, 40)); // NOI18N
         startButton.setText("START");
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,25 +70,25 @@ public class Init extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(340, 340, 340)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(startButton)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
+                        .addGap(180, 180, 180)
                         .addComponent(titlePanel)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(154, 154, 154)
                 .addComponent(titlePanel)
-                .addGap(39, 39, 39)
+                .addGap(111, 111, 111)
                 .addComponent(startButton)
-                .addGap(35, 35, 35)
+                .addGap(52, 52, 52)
                 .addComponent(ExitButton)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,11 +140,15 @@ public class Init extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Init.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
 
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Init().setVisible(true);
+                Init init = new Init();
+                init.setLocation(0, 0);
+                init.setVisible(true);
             }
         });
     }
