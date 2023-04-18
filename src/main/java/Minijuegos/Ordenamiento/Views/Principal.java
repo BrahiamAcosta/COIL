@@ -53,17 +53,18 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        exitButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        responseLabel = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         titleLabel = new javax.swing.JLabel();
         fromWordsPanel = new javax.swing.JPanel();
         toWordsPanel = new javax.swing.JPanel();
+        exitButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         questionTextArea = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        responseLabel = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -72,21 +73,11 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         });
         jScrollPane2.setViewportView(jList1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 102));
-        setMinimumSize(new java.awt.Dimension(920, 630));
+        setMinimumSize(new java.awt.Dimension(900, 590));
         setResizable(false);
-        setSize(new java.awt.Dimension(900, 630));
-
-        exitButton.setBackground(new java.awt.Color(204, 204, 204));
-        exitButton.setFont(new java.awt.Font("Monocraft", 1, 28)); // NOI18N
-        exitButton.setForeground(new java.awt.Color(255, 0, 0));
-        exitButton.setText("EXIT");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
-            }
-        });
+        setSize(new java.awt.Dimension(900, 590));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(15000, 15000));
 
@@ -114,17 +105,17 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        responseLabel.setFont(new java.awt.Font("Minecraft", 1, 28)); // NOI18N
-        responseLabel.setText("Correct!");
-        responseLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         jLabel5.setFont(new java.awt.Font("Monocraft", 1, 36)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Monocraft", 1, 18)); // NOI18N
 
         titleLabel.setFont(new java.awt.Font("Monocraft", 1, 36)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(0, 0, 0));
         titleLabel.setText("ORDER THE WORDS");
 
+        fromWordsPanel.setBackground(new java.awt.Color(217, 213, 185));
+        fromWordsPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        fromWordsPanel.setForeground(new java.awt.Color(173, 128, 90));
         fromWordsPanel.setMaximumSize(new java.awt.Dimension(830, 160));
         fromWordsPanel.setMinimumSize(new java.awt.Dimension(830, 160));
         fromWordsPanel.setPreferredSize(new java.awt.Dimension(830, 160));
@@ -138,28 +129,47 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         fromWordsPanel.setLayout(fromWordsPanelLayout);
         fromWordsPanelLayout.setHorizontalGroup(
             fromWordsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 830, Short.MAX_VALUE)
+            .addGap(0, 824, Short.MAX_VALUE)
         );
         fromWordsPanelLayout.setVerticalGroup(
             fromWordsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+            .addGap(0, 154, Short.MAX_VALUE)
         );
 
         fromWordsPanel.setLayout(new GridLayout(6, 10));
 
+        toWordsPanel.setBackground(new java.awt.Color(217, 213, 185));
+        toWordsPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        toWordsPanel.setForeground(new java.awt.Color(173, 128, 90));
         toWordsPanel.setMaximumSize(new java.awt.Dimension(830, 160));
         toWordsPanel.setMinimumSize(new java.awt.Dimension(830, 160));
         toWordsPanel.setPreferredSize(new java.awt.Dimension(830, 160));
+
+        exitButton.setBackground(new java.awt.Color(217, 213, 185));
+        exitButton.setFont(new java.awt.Font("Monocraft", 1, 28)); // NOI18N
+        exitButton.setForeground(new java.awt.Color(255, 0, 0));
+        exitButton.setText("EXIT");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout toWordsPanelLayout = new javax.swing.GroupLayout(toWordsPanel);
         toWordsPanel.setLayout(toWordsPanelLayout);
         toWordsPanelLayout.setHorizontalGroup(
             toWordsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 830, Short.MAX_VALUE)
+            .addGroup(toWordsPanelLayout.createSequentialGroup()
+                .addGap(344, 344, 344)
+                .addComponent(exitButton)
+                .addContainerGap(370, Short.MAX_VALUE))
         );
         toWordsPanelLayout.setVerticalGroup(
             toWordsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+            .addGroup(toWordsPanelLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(exitButton)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jScrollPane1.setMaximumSize(new java.awt.Dimension(830, 130));
@@ -167,51 +177,64 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         jScrollPane1.setPreferredSize(new java.awt.Dimension(830, 130));
 
         questionTextArea.setEditable(false);
+        questionTextArea.setBackground(new java.awt.Color(217, 213, 185));
         questionTextArea.setColumns(20);
         questionTextArea.setFont(new java.awt.Font("Monocraft", 0, 24)); // NOI18N
+        questionTextArea.setForeground(new java.awt.Color(173, 128, 90));
         questionTextArea.setRows(5);
         questionTextArea.setAutoscrolls(false);
-        questionTextArea.setBorder(null);
+        questionTextArea.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         questionTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         questionTextArea.setFocusable(false);
         questionTextArea.setMaximumSize(new java.awt.Dimension(830, 130));
         questionTextArea.setMinimumSize(new java.awt.Dimension(830, 130));
         questionTextArea.setOpaque(false);
-        questionTextArea.setPreferredSize(new java.awt.Dimension(830, 130));
         jScrollPane1.setViewportView(questionTextArea);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alisser\\Documents\\Proyectos\\Mini-Juego-Ordenamiento-Palabras\\src\\main\\java\\Views\\background.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(900, 600));
+        jLabel1.setMinimumSize(new java.awt.Dimension(900, 600));
+        jLabel1.setPreferredSize(new java.awt.Dimension(900, 600));
+
+        responseLabel.setFont(new java.awt.Font("Minecraft", 1, 28)); // NOI18N
+        responseLabel.setForeground(new java.awt.Color(173, 128, 90));
+        responseLabel.setText("Correct!");
+        responseLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(responseLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(exitButton)
-                .addGap(222, 222, 222))
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel6)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(titleLabel)
-                        .addGap(92, 92, 92)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(222, 222, 222)
+                                .addComponent(titleLabel)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
-                        .addGap(186, 186, 186)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(fromWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(toWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(76, Short.MAX_VALUE))))
+                            .addComponent(fromWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(345, 345, 345)
+                .addComponent(responseLabel)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,28 +249,25 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel5)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addContainerGap()
                         .addComponent(titleLabel)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel6)
+                        .addGap(95, 95, 95))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fromWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fromWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(toWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(exitButton)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(responseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 50, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(responseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, Short.MAX_VALUE))
         );
 
         pack();
@@ -257,6 +277,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         // TODO add your handling code here:
         Init initWindow = new Init();
         initWindow.setVisible(true);
+        initWindow.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_exitButtonActionPerformed
 
@@ -269,6 +290,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
      */
     public void WordsToLabel() throws IOException {
         if (this.index < info.NumSentences()) {
+            toWordsPanel.removeAll();
             this.setLocation(0, 0);
             exitButton.setVisible(false);
             this.mission = info.Mission(index);
@@ -441,6 +463,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitButton;
     private javax.swing.JPanel fromWordsPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JList<String> jList1;

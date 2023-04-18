@@ -34,16 +34,19 @@ public class Init extends javax.swing.JFrame {
         titlePanel = new javax.swing.JLabel();
         ExitButton = new javax.swing.JButton();
         startButton = new javax.swing.JButton();
+        backgroundImg = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 102));
         setMinimumSize(new java.awt.Dimension(900, 630));
         setResizable(false);
 
+        titlePanel.setBackground(new java.awt.Color(0, 0, 0));
         titlePanel.setFont(new java.awt.Font("Minecraft", 1, 48)); // NOI18N
+        titlePanel.setForeground(new java.awt.Color(0, 0, 0));
         titlePanel.setText("ORDER THE WORDS");
 
-        ExitButton.setBackground(new java.awt.Color(204, 204, 204));
+        ExitButton.setBackground(new java.awt.Color(217, 213, 185));
         ExitButton.setFont(new java.awt.Font("Minecraft", 1, 40)); // NOI18N
         ExitButton.setForeground(new java.awt.Color(255, 0, 0));
         ExitButton.setText("EXIT");
@@ -53,14 +56,21 @@ public class Init extends javax.swing.JFrame {
             }
         });
 
-        startButton.setBackground(new java.awt.Color(204, 204, 204));
+        startButton.setBackground(new java.awt.Color(217, 213, 185));
         startButton.setFont(new java.awt.Font("Minecraft", 1, 40)); // NOI18N
+        startButton.setForeground(new java.awt.Color(173, 128, 90));
         startButton.setText("START");
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startButtonActionPerformed(evt);
             }
         });
+
+        backgroundImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alisser\\Documents\\Proyectos\\Mini-Juego-Ordenamiento-Palabras\\src\\main\\java\\Views\\background.png")); // NOI18N
+        backgroundImg.setText("jLabel1");
+        backgroundImg.setMaximumSize(new java.awt.Dimension(900, 600));
+        backgroundImg.setMinimumSize(new java.awt.Dimension(900, 600));
+        backgroundImg.setPreferredSize(new java.awt.Dimension(900, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,17 +87,27 @@ public class Init extends javax.swing.JFrame {
                         .addGap(180, 180, 180)
                         .addComponent(titlePanel)))
                 .addContainerGap(208, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(backgroundImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
+                .addGap(188, 188, 188)
                 .addComponent(titlePanel)
-                .addGap(111, 111, 111)
+                .addGap(77, 77, 77)
                 .addComponent(startButton)
                 .addGap(52, 52, 52)
                 .addComponent(ExitButton)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(backgroundImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -110,6 +130,7 @@ public class Init extends javax.swing.JFrame {
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     /**
@@ -153,6 +174,7 @@ public class Init extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ExitButton;
+    private javax.swing.JLabel backgroundImg;
     private javax.swing.JButton startButton;
     private javax.swing.JLabel titlePanel;
     // End of variables declaration//GEN-END:variables
