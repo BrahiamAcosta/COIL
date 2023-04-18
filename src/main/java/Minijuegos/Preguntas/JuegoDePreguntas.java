@@ -4,26 +4,27 @@ package Minijuegos.Preguntas;
  *
  * @author Brahiam
  */
+
+
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 
 public class JuegoDePreguntas extends javax.swing.JFrame {
     int aciertos = 0;
-    static String urlBD = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRzzKW7lD3dJtG2JUU0OO81H7f5ytB8AGh-VBUKC8CspJjTQDYiUPwicRqKQepUQpQHOiMPBp--Kt11/pub?output=tsv";
-    static String textoBaseDePreguntas = LeerArchivo_ASCII(urlBD);
-    static String[] renglones = textoBaseDePreguntas.split("\n");
+    static String rutaPreguntas = "src\\main\\java\\Minijuegos\\Preguntas\\resources\\preguntas.tsv";
+    static String textoBaseDePreguntas;
+    static String[] renglones;
     static int cantidadDePreguntas = 10;
     
     static String[][] baseDePreguntas = new String[cantidadDePreguntas][5];
@@ -61,7 +62,7 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
             jLabel2.setVisible(true);
             jLabel2.setText("");
             try {
-                BufferedImage imagen = ImageIO.read(new URL(img));
+                BufferedImage imagen = ImageIO.read(new File(img));
                 Image imagenEscalada = imagen.getScaledInstance(-1, 360,Image.SCALE_SMOOTH);
                 jLabel2.setIcon(new ImageIcon(imagenEscalada));
             } catch (IOException e) {
@@ -112,6 +113,11 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
     }
     
     public JuegoDePreguntas() {
+        try{
+            this.textoBaseDePreguntas = LeerArchivo_ASCII(this.rutaPreguntas);
+            this.renglones = textoBaseDePreguntas.split("\n");
+        }catch(Exception e){
+        }
         for(int i = 0;i<renglones.length;i++){
             String renglon = renglones[i];
             baseDePreguntas[i] = renglon.split("\t");
@@ -124,24 +130,8 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
         jugar();
     }    
 
-     public static String LeerArchivo_ASCII(String ruta) {
-        try {
-            if (ruta == null) {
-                throw new RuntimeException("Error, la URL de lectura no puede ser nula");
-            }
-            URL url = new URL(ruta);
-            URLConnection conexión = url.openConnection();
-            InputStreamReader isr = new InputStreamReader(conexión.getInputStream());
-            return LeerArchivo_ASCII(isr);
-        } catch (Exception e) {
-            System.out.println("No hay conexión a internet, la base de datos no pudo ser cargada");
-            System.exit(0);
-        }
-        return "";
-    }
-
-    public static String LeerArchivo_ASCII(Reader reader) throws Exception {
-        BufferedReader br = new BufferedReader(reader);
+    public static String LeerArchivo_ASCII(String ruta) throws Exception {
+        BufferedReader br = new BufferedReader(new FileReader(ruta));
         String texto = "";
         String linea;
         boolean primerRenglón = true;
@@ -153,7 +143,6 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
             }
             texto += linea;
         }
-        reader.close();
         br.close();
         return texto;
     }
@@ -275,4 +264,3 @@ public class JuegoDePreguntas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     // End of variables declaration                   
 }
-
