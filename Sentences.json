@@ -2,16 +2,16 @@
     {
         "mission": 1,
         "question": "Order the words to find out the hidden message in order to know the mission.",
-        "sentence": "You get up at 6:00 o’clock to take a shower ."
+        "sentence": "You get up at 6:00 o'clock to take a shower ."
     },
     {
         "mission": 2,
-        "question": "It’s a long day, you need to know what time you wake up for the next mission, order the words.",
-        "sentence": "The avatars wake up at 10:00 o’clock ."
+        "question": "It's a long day, you need to know what time you wake up for the next mission, order the words.",
+        "sentence": "The avatars wake up at 10:00 o'clock ."
     },
     {
         "mission": 3,
-        "question": "For this mission you are in a place where you don’t know anything. You need to know the interrogative structure of the simple present to ask the daily routine of the other characters.",
+        "question": "For this mission you are in a place where you don't know anything. You need to know the interrogative structure of the simple present to ask the daily routine of the other characters.",
         "order": "Aux. Verb / Subject / Main Verb / Complement / ?"
     },
     {
@@ -41,7 +41,7 @@
     },
     {
         "mission": 9,
-        "question": "There aren’t cards on the board and they say you have them, you need to know the negative form of the present simple, put the cards in the correct order.",
+        "question": "There aren't cards on the board and they say you have them, you need to know the negative form of the present simple, put the cards in the correct order.",
         "order": "Subject / Auxiliary / Not / Complement"
     },
     {
@@ -72,7 +72,7 @@
     {
         "mission": 11,
         "question": "Put the words in order.",
-        "sentence": "You don’t work at four o’clock"
+        "sentence": "You don't work at four o'clock"
     },
     {
         "mission": 11,
@@ -82,7 +82,7 @@
     {
         "mission": 11,
         "question": "Put the words in order.",
-        "sentence": "I don’t like fast food"
+        "sentence": "I don't like fast food"
     },
     {
         "mission": 11,
