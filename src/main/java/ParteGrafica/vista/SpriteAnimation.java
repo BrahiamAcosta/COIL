@@ -166,7 +166,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
                 g.drawImage(sprite, x, y, null);
             }
             if(!saltoControles){
-                g.drawImage(controles,150,130,null);
+                g.drawImage(controles,150,100,null);
             }
         }
         else{
