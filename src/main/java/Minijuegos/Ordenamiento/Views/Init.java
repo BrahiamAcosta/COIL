@@ -43,7 +43,9 @@ public class Init extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 102));
+        setMaximumSize(new java.awt.Dimension(900, 630));
         setMinimumSize(new java.awt.Dimension(900, 630));
+        setPreferredSize(new java.awt.Dimension(900, 630));
         setResizable(false);
 
         titlePanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -71,20 +73,10 @@ public class Init extends javax.swing.JFrame {
             }
         });
 
-        try {
-            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts\\minecraft_font.ttf"));
-            startButton.setFont(font.deriveFont(Font.PLAIN, 40));
-            titlePanel.setFont(font.deriveFont(Font.PLAIN, 48));
-            ExitButton.setFont(font.deriveFont(Font.PLAIN, 40));
-        } catch (IOException | FontFormatException e) {
-            e.printStackTrace();
-        }
-
         backgroundImg.setBackground(new java.awt.Color(217, 213, 185));
-        backgroundImg.setMaximumSize(new java.awt.Dimension(900, 630));
-        backgroundImg.setMinimumSize(new java.awt.Dimension(900, 630));
-        backgroundImg.setIcon(new ImageIcon("src\\main\\java\\Minijuegos\\Ordenamiento\\Views\\background.png"));
-        backgroundImg.setPreferredSize(new java.awt.Dimension(900, 630));
+        backgroundImg.setMaximumSize(new java.awt.Dimension(900, 600));
+        backgroundImg.setMinimumSize(new java.awt.Dimension(900, 600));
+        backgroundImg.setPreferredSize(new java.awt.Dimension(900, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,12 +92,12 @@ public class Init extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(titlePanel)))
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(backgroundImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(backgroundImg, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,10 +110,9 @@ public class Init extends javax.swing.JFrame {
                 .addComponent(ExitButton)
                 .addContainerGap(139, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(backgroundImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 30, Short.MAX_VALUE)
+                    .addComponent(backgroundImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
