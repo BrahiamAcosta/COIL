@@ -274,10 +274,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
-        Init initWindow = new Init();
-        initWindow.setVisible(true);
-        initWindow.setLocationRelativeTo(null);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void fromWordsPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fromWordsPanelMouseClicked
