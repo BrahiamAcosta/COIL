@@ -1,6 +1,7 @@
 package ParteGrafica.vista;
 
 import Minijuegos.Preguntas.JuegoDePreguntas;
+import Minijuegos.Memoria.Principal.GAME;
 import Minijuegos.Ordenamiento.Mini_Game.Mini_Game;
 import ParteGrafica.modelos.PersonajePpal;
 import java.awt.Graphics;
@@ -196,6 +197,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public void inicioJuego3(){
         if((!(personaje.isJuego3Terminado()))&&(controlJuego3 == 0)){
             controlJuego3 ++;
+            GAME memoria = new GAME();
             
         }
     }
