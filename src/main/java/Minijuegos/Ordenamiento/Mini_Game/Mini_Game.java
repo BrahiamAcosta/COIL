@@ -21,7 +21,6 @@ public class Mini_Game {
         try {
             gameWindow = new Principal();
             gameWindow.setVisible(true);
-            gameWindow.setLocationRelativeTo(null);
             gameWindow.WordsToLabel();
         } catch (IOException ex) {
             Logger.getLogger(Init.class.getName()).log(Level.SEVERE, null, ex);

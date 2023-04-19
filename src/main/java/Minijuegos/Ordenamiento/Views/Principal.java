@@ -73,9 +73,8 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         });
         jScrollPane2.setViewportView(jList1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 102));
-        setMaximumSize(new java.awt.Dimension(900, 630));
         setMinimumSize(new java.awt.Dimension(900, 630));
         setResizable(false);
         setSize(new java.awt.Dimension(900, 630));
@@ -163,12 +162,12 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             .addGroup(toWordsPanelLayout.createSequentialGroup()
                 .addGap(350, 350, 350)
                 .addComponent(exitButton)
-                .addContainerGap(364, Short.MAX_VALUE))
+                .addContainerGap(383, Short.MAX_VALUE))
         );
         toWordsPanelLayout.setVerticalGroup(
             toWordsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toWordsPanelLayout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addComponent(exitButton)
                 .addGap(48, 48, 48))
         );
