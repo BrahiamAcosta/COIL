@@ -191,8 +191,6 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         questionTextArea.setOpaque(false);
         jScrollPane1.setViewportView(questionTextArea);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Minijuegos/Ordenamiento/Views/background.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
         jLabel1.setMaximumSize(new java.awt.Dimension(900, 600));
         jLabel1.setMinimumSize(new java.awt.Dimension(900, 600));
         jLabel1.setPreferredSize(new java.awt.Dimension(900, 600));

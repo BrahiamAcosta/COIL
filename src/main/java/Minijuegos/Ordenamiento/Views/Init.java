@@ -67,8 +67,6 @@ public class Init extends javax.swing.JFrame {
             }
         });
 
-        backgroundImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Minijuegos/Ordenamiento/Views/background.png"))); // NOI18N
-        backgroundImg.setText("jLabel1");
         backgroundImg.setMaximumSize(new java.awt.Dimension(900, 600));
         backgroundImg.setMinimumSize(new java.awt.Dimension(900, 600));
         backgroundImg.setPreferredSize(new java.awt.Dimension(900, 600));
