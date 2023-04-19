@@ -67,9 +67,10 @@ public class Init extends javax.swing.JFrame {
             }
         });
 
-        backgroundImg.setMaximumSize(new java.awt.Dimension(900, 600));
-        backgroundImg.setMinimumSize(new java.awt.Dimension(900, 600));
-        backgroundImg.setPreferredSize(new java.awt.Dimension(900, 600));
+        backgroundImg.setBackground(new java.awt.Color(217, 213, 185));
+        backgroundImg.setMaximumSize(new java.awt.Dimension(900, 630));
+        backgroundImg.setMinimumSize(new java.awt.Dimension(900, 630));
+        backgroundImg.setPreferredSize(new java.awt.Dimension(900, 630));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,7 +102,7 @@ public class Init extends javax.swing.JFrame {
                 .addComponent(startButton)
                 .addGap(52, 52, 52)
                 .addComponent(ExitButton)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
