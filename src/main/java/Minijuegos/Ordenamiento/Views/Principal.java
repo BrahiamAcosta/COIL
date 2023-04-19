@@ -166,10 +166,10 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         );
         toWordsPanelLayout.setVerticalGroup(
             toWordsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(toWordsPanelLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toWordsPanelLayout.createSequentialGroup()
+                .addContainerGap(95, Short.MAX_VALUE)
                 .addComponent(exitButton)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         jScrollPane1.setMaximumSize(new java.awt.Dimension(830, 130));
@@ -191,14 +191,14 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         questionTextArea.setOpaque(false);
         jScrollPane1.setViewportView(questionTextArea);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alisser\\Documents\\Proyectos\\Mini-Juego-Ordenamiento-Palabras\\src\\main\\java\\Views\\background.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Minijuegos/Ordenamiento/Views/background.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMaximumSize(new java.awt.Dimension(900, 600));
         jLabel1.setMinimumSize(new java.awt.Dimension(900, 600));
         jLabel1.setPreferredSize(new java.awt.Dimension(900, 600));
 
         responseLabel.setFont(new java.awt.Font("Minecraft", 1, 28)); // NOI18N
-        responseLabel.setForeground(new java.awt.Color(173, 128, 90));
+        responseLabel.setForeground(new java.awt.Color(0, 0, 0));
         responseLabel.setText("Correct!");
         responseLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -296,9 +296,6 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             this.mission = info.Mission(index);
             this.words = info.Words(index);
             this.question = info.Questions(index);
-            if (this.words.get(0) instanceof String) {
-
-            }
             questionTextArea.setVisible(false);
             responseLabel.setVisible(false);
             ArrayList<String> wordsList = new ArrayList<>();
@@ -332,6 +329,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 word.addActionListener(this);
                 word.setBounds(10, 10, 200, 100);
                 fromWordsPanel.add(word);
+                fromWordsPanel.revalidate();
             }
         } else {
             fromWordsPanel.removeAll();

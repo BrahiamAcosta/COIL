@@ -17,9 +17,10 @@ public class Init extends javax.swing.JFrame {
     /**
      * Creates new form Init
      */
+
     public Init() {
         super("Init");
-        setLocation(0 ,0);
+        setLocation(0, 0);
         initComponents();
     }
 
@@ -66,7 +67,7 @@ public class Init extends javax.swing.JFrame {
             }
         });
 
-        backgroundImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alisser\\Documents\\Proyectos\\Mini-Juego-Ordenamiento-Palabras\\src\\main\\java\\Views\\background.png")); // NOI18N
+        backgroundImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Minijuegos/Ordenamiento/Views/background.png"))); // NOI18N
         backgroundImg.setText("jLabel1");
         backgroundImg.setMaximumSize(new java.awt.Dimension(900, 600));
         backgroundImg.setMinimumSize(new java.awt.Dimension(900, 600));
@@ -159,14 +160,14 @@ public class Init extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Init.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
 
         /* Create and display the form */
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Init init = new Init();
                 init.setLocation(0, 0);
+                init.setLocationRelativeTo(null);
                 init.setVisible(true);
             }
         });

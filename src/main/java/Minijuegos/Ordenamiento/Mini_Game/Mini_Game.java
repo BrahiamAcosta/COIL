@@ -5,15 +5,26 @@
 package Minijuegos.Ordenamiento.Mini_Game;
 
 import Minijuegos.Ordenamiento.Views.Init;
+import Minijuegos.Ordenamiento.Views.Principal;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Alisser
  */
 public class Mini_Game {
+
     public void inicio() throws IOException {
-        Init initWindow = new Init();
-        initWindow.setVisible(true);
+        Principal gameWindow;
+        try {
+            gameWindow = new Principal();
+            gameWindow.setVisible(true);
+            gameWindow.setLocationRelativeTo(null);
+            gameWindow.WordsToLabel();
+        } catch (IOException ex) {
+            Logger.getLogger(Init.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
