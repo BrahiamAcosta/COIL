@@ -8,7 +8,7 @@ import ParteGrafica.vista.SpriteAnimation;
 public class InicioJuego {
     public static void main(String[] args) {
         SpriteAnimation juego = new SpriteAnimation();
-        while (true) {
+        while (juego.isJuegoEjecutandose()) {
             juego.update();
             try {
                 Thread.sleep(90);

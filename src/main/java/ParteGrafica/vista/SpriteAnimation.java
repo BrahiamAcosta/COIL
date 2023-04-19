@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 
 public class SpriteAnimation extends JPanel implements KeyListener {
     
+    private boolean juegoEjecutandose = true;
     private int controlJuego1 = 0;
     private boolean saltoControles = false; 
     private int controlJuego2 = 0;
@@ -172,6 +173,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
         }
         else{
             g.drawImage(output,0,0,null);
+            juegoEjecutandose = false;
         }
 
     }
@@ -293,4 +295,9 @@ public class SpriteAnimation extends JPanel implements KeyListener {
             movingRight = false;
         }
     }
+
+    public boolean isJuegoEjecutandose() {
+        return juegoEjecutandose;
+    }
+    
 }
