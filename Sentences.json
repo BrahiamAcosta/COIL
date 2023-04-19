@@ -7,7 +7,7 @@
     {
         "mission": 2,
         "question": "It's a long day, you need to know what time you wake up for the next mission, order the words.",
-        "sentence": "The avatars wake up at 10:00 o'clock ."
+        "sentence": "The avatar wakes up at 10:00 o'clock ."
     },
     {
         "mission": 3,
@@ -32,7 +32,7 @@
     {
         "mission": 7,
         "question": "You have to write the following sentence in affirmative form 'She doesn't eat breakfast'.",
-        "sentence": "She eat breakfast ."
+        "sentence": "She eats breakfast ."
     },
     {
         "mission": 8,
