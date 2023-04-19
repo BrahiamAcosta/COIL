@@ -7,6 +7,10 @@ package Minijuegos.Ordenamiento.Views;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.awt.Font;
+import java.io.File;
+import java.awt.FontFormatException;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -67,9 +71,19 @@ public class Init extends javax.swing.JFrame {
             }
         });
 
+        try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts\\minecraft_font.ttf"));
+            startButton.setFont(font.deriveFont(Font.PLAIN, 40));
+            titlePanel.setFont(font.deriveFont(Font.PLAIN, 48));
+            ExitButton.setFont(font.deriveFont(Font.PLAIN, 40));
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
+
         backgroundImg.setBackground(new java.awt.Color(217, 213, 185));
         backgroundImg.setMaximumSize(new java.awt.Dimension(900, 630));
         backgroundImg.setMinimumSize(new java.awt.Dimension(900, 630));
+        backgroundImg.setIcon(new ImageIcon("src\\main\\java\\Minijuegos\\Ordenamiento\\Views\\background.png"));
         backgroundImg.setPreferredSize(new java.awt.Dimension(900, 630));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

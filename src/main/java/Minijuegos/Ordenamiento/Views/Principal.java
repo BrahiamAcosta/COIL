@@ -9,14 +9,18 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
@@ -63,7 +67,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         exitButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         questionTextArea = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        backgroundImg = new javax.swing.JLabel();
         responseLabel = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
@@ -162,12 +166,12 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             .addGroup(toWordsPanelLayout.createSequentialGroup()
                 .addGap(350, 350, 350)
                 .addComponent(exitButton)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addContainerGap(364, Short.MAX_VALUE))
         );
         toWordsPanelLayout.setVerticalGroup(
             toWordsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toWordsPanelLayout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+                .addContainerGap(67, Short.MAX_VALUE)
                 .addComponent(exitButton)
                 .addGap(48, 48, 48))
         );
@@ -191,10 +195,10 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
         questionTextArea.setOpaque(false);
         jScrollPane1.setViewportView(questionTextArea);
 
-        jLabel1.setBackground(new java.awt.Color(217, 213, 185));
-        jLabel1.setMaximumSize(new java.awt.Dimension(900, 630));
-        jLabel1.setMinimumSize(new java.awt.Dimension(900, 630));
-        jLabel1.setPreferredSize(new java.awt.Dimension(900, 630));
+        backgroundImg.setBackground(new java.awt.Color(217, 213, 185));
+        backgroundImg.setMaximumSize(new java.awt.Dimension(900, 630));
+        backgroundImg.setMinimumSize(new java.awt.Dimension(900, 630));
+        backgroundImg.setPreferredSize(new java.awt.Dimension(900, 630));
 
         responseLabel.setFont(new java.awt.Font("Minecraft", 1, 28)); // NOI18N
         responseLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -208,17 +212,18 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(titleLabel))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fromWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(toWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(titleLabel)
+                        .addGap(251, 251, 251)))
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -229,9 +234,7 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 .addComponent(responseLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 870, Short.MAX_VALUE)))
+                .addComponent(backgroundImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,28 +247,23 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(titleLabel)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                            .addComponent(jLabel5))
+                        .addGap(66, 66, 66)
                         .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
+                        .addComponent(titleLabel)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(fromWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(toWordsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(responseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 356, Short.MAX_VALUE)))
+                .addComponent(backgroundImg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -284,6 +282,16 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
      * @param args the command line arguments
      */
     public void WordsToLabel() throws IOException {
+        try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts\\minecraft_font.ttf"));
+            titleLabel.setFont(font.deriveFont(Font.PLAIN, 36));
+            exitButton.setFont(font.deriveFont(Font.PLAIN, 28));
+            questionTextArea.setFont(font.deriveFont(Font.PLAIN, 24));
+            responseLabel.setFont(font.deriveFont(Font.PLAIN, 28));
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+        }
+        backgroundImg.setIcon(new ImageIcon("src\\main\\java\\Minijuegos\\Ordenamiento\\Views\\background.png"));
         if (this.index < info.NumSentences()) {
             toWordsPanel.removeAll();
             this.setLocation(0, 0);
@@ -320,7 +328,12 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
                 JButton word = new JButton(wordsDisorder.getString(i));
                 word.setPreferredSize(new Dimension(150, 30));
                 word.setBackground(new java.awt.Color(204, 204, 204));
-                word.setFont(new java.awt.Font("Monocraft", 1, 14)); // NOI18N
+                try {
+                    Font font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts\\minecraft_font.ttf"));
+                    word.setFont(font.deriveFont(Font.BOLD, 14));
+                } catch (IOException | FontFormatException e) {
+                    e.printStackTrace();
+                }
                 word.addActionListener(this);
                 word.setBounds(10, 10, 200, 100);
                 fromWordsPanel.add(word);
@@ -356,7 +369,12 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
             JButton wordSelected = new JButton(buttonText);
             wordSelected.setPreferredSize(new Dimension(150, 30));
             wordSelected.setBackground(new java.awt.Color(204, 204, 204));
-            wordSelected.setFont(new java.awt.Font("Monocraft", 1, 14)); // NOI18N
+            try {
+                Font font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts\\minecraft_font.ttf"));
+                wordSelected.setFont(font.deriveFont(Font.BOLD, 14));
+            } catch (IOException | FontFormatException t) {
+                t.printStackTrace();
+            }
             wordSelected.addActionListener(this);
             wordSelected.setBounds(10, 10, 200, 100);
             Container parent = button.getParent();
@@ -454,9 +472,9 @@ public class Principal extends javax.swing.JFrame implements ActionListener {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel backgroundImg;
     private javax.swing.JButton exitButton;
     private javax.swing.JPanel fromWordsPanel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JList<String> jList1;
