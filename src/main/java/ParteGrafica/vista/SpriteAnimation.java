@@ -19,10 +19,12 @@ import javax.swing.JPanel;
 public class SpriteAnimation extends JPanel implements KeyListener {
     
     private int controlJuego1 = 0;
+    private boolean saltoControles = false; 
     private int controlJuego2 = 0;
     private int controlJuego3 = 0;
     private BufferedImage spriteSheet;
     private int contEnter = 0;
+    private BufferedImage controles;
     private BufferedImage fondo;
     private BufferedImage dialogo1;
     private BufferedImage dialogo2;
@@ -47,6 +49,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
     public SpriteAnimation() {
 
         try {
+            controles = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\controles.png"));
             dialogo1 = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\dialogoInicial.png"));
             spriteSheet = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\soldier_altcolor.png"));
             dialogo2 = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\dialogoIntermedio.png"));
@@ -162,6 +165,9 @@ public class SpriteAnimation extends JPanel implements KeyListener {
                 Image sprite = spriteSheet.getSubimage(0, 64 * 2, spriteWidth, spriteHeight);
                 g.drawImage(sprite, x, y, null);
             }
+            if(!saltoControles){
+                g.drawImage(controles,150,130,null);
+            }
         }
         else{
             g.drawImage(output,0,0,null);
@@ -208,19 +214,19 @@ public class SpriteAnimation extends JPanel implements KeyListener {
         if (y > 450) {
             y = 450;
         }
-        if (movingUp && (personaje.posibleMovArr(x, y))) {
+        if (movingUp && (personaje.posibleMovArr(x, y))&& saltoControles) {
             y -= speed;
             animate();
         }
-        if (movingDown && (personaje.posibleMovAba(x, y))) {
+        if (movingDown && (personaje.posibleMovAba(x, y))&& saltoControles) {
             y += speed;
             animate();
         }
-        if (movingLeft && (personaje.posibleMovIzq(x, y))) {
+        if (movingLeft && (personaje.posibleMovIzq(x, y))&& saltoControles) {
             x -= speed;
             animate();
         }
-        if (movingRight && (personaje.posibleMovDer(x, y))) {
+        if (movingRight && (personaje.posibleMovDer(x, y))&& saltoControles) {
             x += speed;
             animate();
         }
@@ -243,10 +249,12 @@ public class SpriteAnimation extends JPanel implements KeyListener {
             enter = false;
         }
         if ((e.getKeyCode() == KeyEvent.VK_ENTER) && (enter)) {
+            saltoControles = true;
             enter = false;
             contEnter ++;
         }
         if ((e.getKeyCode() == KeyEvent.VK_ENTER) && (!enter)) {
+            saltoControles = true;
             enter = true;
             contEnter ++;
         }
