@@ -53,7 +53,7 @@ public class SpriteAnimation extends JPanel implements KeyListener {
         try {
             controles = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\controles.png"));
             dialogo1 = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\dialogoInicial.png"));
-            spriteSheet = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\soldier_altcolor.png"));
+            spriteSheet = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\soldier.png"));
             dialogo2 = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\dialogoIntermedio.png"));
             dialogo3 = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\dialogoFinal.png"));
             dialogoGuardia = ImageIO.read(new File("src\\main\\java\\ParteGrafica\\img\\dialogoGuardia.png"));
